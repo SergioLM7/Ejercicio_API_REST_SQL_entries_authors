@@ -1,16 +1,13 @@
 const pool = require('../config/db_pgsql');
-const queries = require('../queries/entry.queries') // Queries SQL
-
-
-
+const queries = require('../queries/authors.queries') // Queries SQL
 
 // GET ALL
-const getAllEntries = async () => {
+const getAllAuthors = async () => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion con la BBDD
         //Itenta lanzar la Query (Que está guardada en un objeto) para evitar un SQL Injection 
-        const data = await client.query(queries.getAllEntries)
+        const data = await client.query(queries.getAllAuthors)
         result = data.rows
     } catch (err) {
         console.log(err);
@@ -22,17 +19,16 @@ const getAllEntries = async () => {
     return result
 };
 
-// GET By Email
-const getEntriesByEmail = async (email) => {
+//GET Authors by email
+const getAuthorsByEmail = async (email) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion con la BBDD
         //Itenta lanzar la Query (Que está guardada en un objeto) para evitar un SQL Injection 
         //se le pasa la query queries.getEntriesByEmail y después de la , 
         //se le añade el segundo parámetro $1 [email] 
-        const data = await client.query(queries.getEntriesByEmail, [email])
+        const data = await client.query(queries.getAuthorsByEmail, [email])
         result = data.rows
-
     } catch (err) {
         console.log(err);
         throw err;
@@ -43,14 +39,15 @@ const getEntriesByEmail = async (email) => {
     return result
 };
 
-// CREATE
-const createEntry = async (entry) => {
-    const { title, content, email, category } = entry;
+//CREATE Author
+const createAuthor = async (author) => {
+    const { name, surname, email, image } = author;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.createEntry, [title, content, email, category])
-        result = data.rowCount
+        const data = await client.query(queries.createAuthor, [name, surname, email, image])
+        result = data.rowCount;
+        console.log(data);
     } catch (err) {
         console.log(err);
         throw err;
@@ -60,19 +57,18 @@ const createEntry = async (entry) => {
     return result
 };
 
-//UPDATE
-const updateEntry = async (entry) => {
-    const { title, content, date, email, category, old_title } = entry;
+
+//UPDATE author by email
+const updateAuthor = async (author) => {
+    const { name, surname, email, image } = author;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.updateEntry, [
-            title,
-            content,
-            date,
-            email,
-            category,
-            old_title
+        const data = await client.query(queries.updateAuthor, [
+            name, 
+            surname, 
+            email, 
+            image
         ]);
         result = data.rowCount;
     } catch (err) {
@@ -84,12 +80,12 @@ const updateEntry = async (entry) => {
     return result
 };
 
-//DELETE
-const deleteEntryByTitle = async (title) => {
+//DELETE author by email
+const deleteAuthorByEmail = async (email) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion con la BBDD 
-        const data = await client.query(queries.deleteEntry, [title]);
+        const data = await client.query(queries.deleteAuthor, [email]);
         result = data.rowCount;
     } catch (err) {
         console.log(err);
@@ -101,25 +97,23 @@ const deleteEntryByTitle = async (title) => {
     return result
 };
 
-
-const entries = {
-    getEntriesByEmail,
-    getAllEntries,
-    createEntry,
-    deleteEntryByTitle,
-    updateEntry
+const authors = {
+    getAllAuthors,
+    getAuthorsByEmail,
+    createAuthor,
+    updateAuthor,
+    deleteAuthorByEmail
 }
 
-module.exports = entries;
+module.exports = authors;
 
-// Pruebas
+//PRUEBAS
 /*let newEntry = {
-    title: "Estamos de lunes de Back 2",
-    content: "La venganza del elefante relacional SQL",
-    email: "guillermu@thebridgeschool.es",
-    category: "Software",
-    old_title: 'Estamos KO'
+    name: "Jorge",
+    surname: "Lillo",
+    email: "jgarcia78@gmail.com",
+    image: "https://i.pinimg.com/236x/eb/09/69/eb096917cedb8fd3b3363d3dec531baa.jpg",
 };*/
 
-/*deleteEntryByTitle(title)
-   .then(data => console.log(data))*/
+/*deleteAuthorByEmail('sergiolillos@hotmail.com')
+   .then(data => console.log(data));*/
