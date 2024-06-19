@@ -19,9 +19,9 @@ CREATE TABLE entries (
 );
 
 --Evitar entries repetidas por title
---ALTER TABLE entries
---ADD CONSTRAINT uniquetitles
---UNIQUE (title);
+ALTER TABLE entries
+ADD CONSTRAINT uniquetitles
+UNIQUE (title);
 
 -- Insertar datos en tabla authors
 INSERT INTO authors(name,surname,email,image)
