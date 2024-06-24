@@ -28,9 +28,9 @@ const createAuthor = async (req, res) => {
     if (!result.isEmpty()) {
         return res.send({ errors: result.array() });
     } else {
-        const response = await entry.createAuthor(newAuthor);
+        const response = await entry.createAuthor(req.body);
         res.status(201).json({
-            message: `usuario creado: ${newAuthor.email}`
+            message: `usuario creado: ${req.body.email}`
         });
     }
 };
