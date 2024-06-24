@@ -1,5 +1,5 @@
 const entry = require('../models/authors.model'); // Importar el modelo de la BBDD
-const {validateCreateAuthor} = require("express-validator");
+const {validationResult} = require("express-validator");
 
 
 
@@ -9,6 +9,7 @@ const getAuthors = async (req, res) => {
     let authors;
     try {
         if (req.query.email) {
+            //Meter el validador del GET
             authors = await entry.getAuthorsByEmail(req.query.email);
         } else {
             authors = await entry.getAllAuthors();
@@ -23,8 +24,7 @@ const getAuthors = async (req, res) => {
 // POST http://localhost:3000/api/authors
 // Crear author
 const createAuthor = async (req, res) => {
-    const newAuthor = req.body; // {name,surname,email,image}
-    const result = validateCreateAuthor(newAuthor);
+    const result = validationResult(req);
     if (!result.isEmpty()) {
         return res.send({ errors: result.array() });
     } else {
