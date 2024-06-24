@@ -1,22 +1,17 @@
 # EJERCICIO - API REST con Express - Posts del blog
 
-En este ejercicio vamos a trabajar con una base de datos relacional a través de una API REST que desarrollemos, para ello deberemos escribir la lógica necesaria en los archivos ya predefinidos en el repositorio, conectar la base de datos y definir las rutas para interactuar con ella.
-
-A continuación tienes las queries necesarias para el ejercicio, tendrás que ejecutarlas en pgAdmin 4 para crear las tablas e introducir los datos en ellas
-
+## Fichero queries
 [Fichero queries SQL](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_sep23_MAD/blob/master/utils/ejercicioSQL/queries.sql)
 
+## Cómo instalar
+XXXXXXX
 
-## Tareas a realizar
 
-- Primero, vamos a modificar la BBDD para que no se puedan insertar entries repetidas por título (Hay que alterar algo en la tabla)
+## Como usar la API
+### Entries
+- [GET] http://localhost:3000/api/entries
 
-- Después, completamos la API con las siguientes rutas para entries:
-
-    - [GET] http://localhost:3000/api/entries
-
-    #### Modificar la query SQL para que me devuelva una respuesta con los datos del autor y sin ID de la entry:
-
+Devuelve una respuesta con los datos del autor y sin ID de la entry:
 ```
 {
 "title": "noticia desde Node",
@@ -28,20 +23,8 @@ A continuación tienes las queries necesarias para el ejercicio, tendrás que ej
 "image": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
 }
 ```
-En vez de esta respuesta, que es la que está ahora:
 
-```
- {
-"id_entry": 2,
-"title": "Noticia: Un panda suelto por la ciudad",
-"content": "El panda se comió todas las frutas de una tienda",
-"date": "2022-03-15T23:00:00.000Z",
-"email_author":"alvaru@thebridgeschool.es"
-"category": "Sucesos"
-}
-```
-
-- [PUT] http://localhost:3000/api/entries/ (parecido a POST) modifica una entry por completo con nuevos datos y retorna un status 200. Buscar por título para editar entry.
+- [PUT] http://localhost:3000/api/entries/: modifica una entry por completo con nuevos datos y retorna un status 200. Buscar por título para editar entry.
 
 Payload:
 ```
@@ -49,16 +32,15 @@ Payload:
 
 ```
 
-- [DELETE] http://localhost:3000/api/entries/ Borra una entry y retorna un status 200. Búsqueda por título de entry para borrar. 
+- [DELETE] http://localhost:3000/api/entries/: borra una entry y retorna un status 200. Búsqueda por título de entry para borrar. 
+
 Payload: 
 ```
 {message: "Se ha borrado la entry 'Título de noticia' "}
 ```
 
-#### A continuación, crearemos las rutas para los autores:
-
- 
-- [GET] http://localhost:3000/api/authors Retorna un objeto con los datos de todos los autores. Retorna un status 200.
+### Authors
+- [GET] http://localhost:3000/api/authors: retorna un objeto con los datos de todos los autores y un status 200.
 
 Payload:
 ```
@@ -75,7 +57,8 @@ Payload:
 ...
 ```
 
-- [GET] http://localhost:3000/api/authors?email=alejandru@thebridgeschool.es Retorna un objeto con los datos del autor buscado. Retorna un status 200
+- [GET] http://localhost:3000/api/authors?email=alejandru@thebridgeschool.es Retorna un objeto con los datos del autor buscado por su email y retorna también un status 200.
+
 Payload:
 
 ```
@@ -93,13 +76,13 @@ Payload:
 {message: "usuario creado: guillermu@thebridgeschool.es"}
 ```
 
-- [PUT] http://localhost:3000/api/authors/ Actualiza los datos de un autor y retorna un status 200. 
+- [PUT] http://localhost:3000/api/authors?email=alejandru@thebridgeschool.es Actualiza los datos de un autor por su email y retorna un status 200. 
 Payload: 
 ```
 {message: "usuario actualizado: guillermu@thebridgeschool.es"}
 ```
 
-- [DELETE] http://localhost:3000/api/authors/ Borra un autor y retorna un status 200. Búsqueda por email. 
+- [DELETE] http://localhost:3000/api/authors/alejandru@thebridgeschool.es Borra un autor por su email y retorna un status 200.
 Payload: 
 ```
 {message: "Se ha borrado guillermu@thebridgeschool.es"}

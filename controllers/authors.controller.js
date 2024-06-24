@@ -1,4 +1,6 @@
 const entry = require('../models/authors.model'); // Importar el modelo de la BBDD
+const {validateCreateAuthor} = require("express-validator");
+
 
 
 // GET http://localhost:3000/api/authors --> ALL
@@ -22,10 +24,15 @@ const getAuthors = async (req, res) => {
 // Crear author
 const createAuthor = async (req, res) => {
     const newAuthor = req.body; // {name,surname,email,image}
-    const response = await entry.createAuthor(newAuthor);
-    res.status(201).json({
-        message: `usuario creado: ${newAuthor.email}`
-    });
+    const result = validateCreateAuthor(newAuthor);
+    if (!result.isEmpty()) {
+        return res.send({ errors: result.array() });
+    } else {
+        const response = await entry.createAuthor(newAuthor);
+        res.status(201).json({
+            message: `usuario creado: ${newAuthor.email}`
+        });
+    }
 };
 
 // PUT http://localhost:3000/api/authors
@@ -36,7 +43,7 @@ const updateAuthor = async (req, res) => {
         "name" in modifiedAuthor &&
         "surname" in modifiedAuthor &&
         "email" in modifiedAuthor &&
-        "image" in modifiedAuthor 
+        "image" in modifiedAuthor
     ) {
         try {
             const response = await entry.updateAuthor(modifiedAuthor);
@@ -56,14 +63,18 @@ const updateAuthor = async (req, res) => {
 const deleteAuthor = async (req, res) => {
     let authors;
     try {
+        i
+
+
+
         if (req.query.email) {
             authors = await entry.deleteAuthorByEmail(req.query.email);
         }
-        res.status(200).json({message: `Se ha borrado el autor: ${req.query.email}.`}); // message de borrado
+        res.status(200).json({ message: `Se ha borrado el autor: ${req.query.email}.` }); // message de borrado
     } catch (error) {
         res.status(500).json({ error: "Error en la BBD" });
     }
-  };
+};
 
 
 module.exports = {
