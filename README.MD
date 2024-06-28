@@ -1,4 +1,4 @@
-# API REST con Express y SQL - Posts del blog
+# API REST con Express y SQL - Posts de un blog
 
 <a href="https://sergiolm7.github.io/ejercicio_api_rest_sql_entries_authors/" target="_blank"> <img src="banner-api-rest-sql.png"/></a> 
 
@@ -89,7 +89,7 @@ Payload:
 Payload:
 
 ```
-{
+//{
     "id_author": 1,
     "name": "Alejandru",
     "surname": "Regex",
@@ -114,3 +114,7 @@ Payload:
 ```
 {message: "Se ha borrado guillermu@thebridgeschool.es"}
 ```
+
+## Author
+**Sergio Lillo, Full Stack Development Student in The Bridge**
+<a href="https://www.linkedin.com/in/lillosergio/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1200px-LinkedIn_icon.svg.png" width=30px, height=30px/></a> 
