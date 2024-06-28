@@ -1,8 +1,10 @@
-# API REST con Express - Posts del blog
+# API REST con Express y SQL - Posts del blog
+
+<a href="https://sergiolm7.github.io/ejercicio_api_rest_sql_entries_authors/" target="_blank"> <img src="banner-api-rest-sql.png"/></a> 
 
 He creado una API REST con Express y Node.JS que permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre entradas y autores en una base de datos relacional albergada en PostgreSQL. La BBDD y la API están desplegadas en Render.
 
-# Acceso
+# Link de acceso
 -https://api-sql-bridge.onrender.com
 
 ## Contenido
