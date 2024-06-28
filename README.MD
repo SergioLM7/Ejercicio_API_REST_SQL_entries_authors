@@ -65,7 +65,7 @@ Payload:
 - [DELETE] /api/entries/: borra una entry y retorna un status 200. Búsqueda por título de entry para borrar. 
 
 Payload: 
-```bash
+```js
 {message: "Se ha borrado la entry 'Título de noticia' "}
 ```
 
@@ -73,7 +73,7 @@ Payload:
 - [GET] /api/authors: retorna un objeto con los datos de todos los autores y un status 200.
 
 Payload:
-```bash
+```js
 {
     "id_author": 1,
     "name": "Alejandru",
@@ -91,7 +91,7 @@ Payload:
 
 Payload:
 
-```bash
+```js
 {
     "id_author": 1,
     "name": "Alejandru",
@@ -104,19 +104,19 @@ Payload:
 - [POST] /api/authors/: se envían por POST los datos del autor a crear y retorna un status 201. 
 
 Payload:
-```bash
+```js
 {message: "usuario creado: guillermu@thebridgeschool.es"}
 ```
 
 - [PUT] /api/authors/email@prueba.com: actualiza los datos de un autor por su email y retorna un status 200. 
 Payload: 
-```bash
+```js
 {message: "usuario actualizado: guillermu@thebridgeschool.es"}
 ```
 
 - [DELETE] /api/authors/email@prueba.com: borra un autor por su email y retorna un status 200.
 Payload: 
-```bash
+```js
 {message: "Se ha borrado guillermu@thebridgeschool.es"}
 ```
 
