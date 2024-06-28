@@ -1,11 +1,36 @@
-# EJERCICIO - API REST con Express - Posts del blog
+# API REST con Express - Posts del blog
 
-## Fichero queries
-[Fichero queries SQL](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_sep23_MAD/blob/master/utils/ejercicioSQL/queries.sql)
+He creado una API REST con Express y Node.JS que permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre entradas y autores en una base de datos relacional albergada en PostgreSQL. La BBDD y la API están desplegadas en Render.
 
-## Cómo instalar
-XXXXXXX
+# Acceso
+-https://api-sql-bridge.onrender.com
 
+## Contenido
+
+- [Tecnologías](#tecnologías)
+- [Instalación](#instalación)
+- [Base de Datos](#base-de-datos)
+- [Tareas a realizar](#tareas-a-realizar)
+- [Rutas de la API](#rutas-de-la-api)
+
+## Tecnologías
+
+- Node.js
+- PostgreSQL
+- pgAdmin 4
+
+## Instalación
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/SergioLM7/Ejercicio_API_REST_SQL_entries_authors
+cd Ejercicio_API_REST_SQL_entries_authors
+
+2. Instala las dependencias
+npm install
+
+3. Configura la base de datos en config.js con tus credenciales de PostgreSQL.
 
 ## Como usar la API
 ### Entries
