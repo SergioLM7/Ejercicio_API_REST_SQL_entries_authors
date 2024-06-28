@@ -51,7 +51,8 @@ npm install
   "name": "Alejandru",
   "surname": "Regex",
   "image": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-}```
+}
+```
 
 -[PUT] /api/entries/: modifica una entry por completo con nuevos datos y retorna un status 200. Buscar por título para editar entry.
 
