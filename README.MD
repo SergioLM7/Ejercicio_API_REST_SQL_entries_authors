@@ -43,7 +43,7 @@ npm install
 ### Entries
 
 - [GET] /api/entries: devuelve una respuesta con los datos del autor y sin ID de la entry.
-```bash
+```js
 {
   "title": "noticia desde Node",
   "content": "va a triunfar esto2",
@@ -58,7 +58,7 @@ npm install
 -[PUT] /api/entries/: modifica una entry por completo con nuevos datos y retorna un status 200. Buscar por título para editar entry.
 
 Payload:
-```bash
+```js
 {message: "Se ha modificado la entry 'Título de noticia' "}
 ```
 
