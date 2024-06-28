@@ -36,22 +36,27 @@ npm install
 
 ## Como usar la API
 ### Entries
-- [GET] http://localhost:3000/api/entries
+# API REST con Express y SQL - Posts del blog
+
+## Como usar la API
+### Entries
+- [GET] /api/entries
 
 Devuelve una respuesta con los datos del autor y sin ID de la entry:
 ```
 {
-"title": "noticia desde Node",
-"content": "va a triunfar esto2",
-"date": "2022-03-20T23:00:00.000Z",
-"category": "sucesos",
-"name": "Alejandru",
-"surname": "Regex",
-"image": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+  "title": "noticia desde Node",
+  "content": "va a triunfar esto2",
+  "date": "2022-03-20T23:00:00.000Z",
+  "category": "sucesos",
+  "name": "Alejandru",
+  "surname": "Regex",
+  "image": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
 }
+
 ```
 
-- [PUT] http://localhost:3000/api/entries/: modifica una entry por completo con nuevos datos y retorna un status 200. Buscar por título para editar entry.
+-[PUT] /api/entries/: modifica una entry por completo con nuevos datos y retorna un status 200. Buscar por título para editar entry.
 
 Payload:
 ```
@@ -59,7 +64,7 @@ Payload:
 
 ```
 
-- [DELETE] http://localhost:3000/api/entries/: borra una entry y retorna un status 200. Búsqueda por título de entry para borrar. 
+- [DELETE] /api/entries/: borra una entry y retorna un status 200. Búsqueda por título de entry para borrar. 
 
 Payload: 
 ```
@@ -67,7 +72,7 @@ Payload:
 ```
 
 ### Authors
-- [GET] http://localhost:3000/api/authors: retorna un objeto con los datos de todos los autores y un status 200.
+- [GET] /api/authors: retorna un objeto con los datos de todos los autores y un status 200.
 
 Payload:
 ```
@@ -84,32 +89,34 @@ Payload:
 ...
 ```
 
-- [GET] http://localhost:3000/api/authors?email=alejandru@thebridgeschool.es Retorna un objeto con los datos del autor buscado por su email y retorna también un status 200.
+- [GET] /api/authors?email=email@prueba.com: retorna un objeto con los datos del autor buscado por su email y retorna también un status 200.
 
 Payload:
 
 ```
-//{
+{
     "id_author": 1,
     "name": "Alejandru",
     "surname": "Regex",
-    "email": "alejandru@thebridgeschool.es",
+    "email": "email@prueba.com",
     "image": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
 }
 ```
 
-- [POST] http://localhost:3000/api/authors/ Se envía por POST los datos del autor a crear y retorna un status 201. Payload:
+- [POST] /api/authors/: se envían por POST los datos del autor a crear y retorna un status 201. 
+
+Payload:
 ```
 {message: "usuario creado: guillermu@thebridgeschool.es"}
 ```
 
-- [PUT] http://localhost:3000/api/authors?email=alejandru@thebridgeschool.es Actualiza los datos de un autor por su email y retorna un status 200. 
+- [PUT] /api/authors/email@prueba.com: actualiza los datos de un autor por su email y retorna un status 200. 
 Payload: 
 ```
 {message: "usuario actualizado: guillermu@thebridgeschool.es"}
 ```
 
-- [DELETE] http://localhost:3000/api/authors/alejandru@thebridgeschool.es Borra un autor por su email y retorna un status 200.
+- [DELETE] /api/authors/email@prueba.com: borra un autor por su email y retorna un status 200.
 Payload: 
 ```
 {message: "Se ha borrado guillermu@thebridgeschool.es"}
