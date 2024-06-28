@@ -43,7 +43,8 @@ npm install
 ### Entries
 
 - [GET] /api/entries: devuelve una respuesta con los datos del autor y sin ID de la entry.
-```{
+```bash
+{
   "title": "noticia desde Node",
   "content": "va a triunfar esto2",
   "date": "2022-03-20T23:00:00.000Z",
@@ -57,20 +58,23 @@ npm install
 -[PUT] /api/entries/: modifica una entry por completo con nuevos datos y retorna un status 200. Buscar por título para editar entry.
 
 Payload:
-```{message: "Se ha modificado la entry 'Título de noticia' "}
+```bash
+{message: "Se ha modificado la entry 'Título de noticia' "}
 ```
 
 - [DELETE] /api/entries/: borra una entry y retorna un status 200. Búsqueda por título de entry para borrar. 
 
 Payload: 
-```{message: "Se ha borrado la entry 'Título de noticia' "}
+```bash
+{message: "Se ha borrado la entry 'Título de noticia' "}
 ```
 
 ### Authors
 - [GET] /api/authors: retorna un objeto con los datos de todos los autores y un status 200.
 
 Payload:
-```{
+```bash
+{
     "id_author": 1,
     "name": "Alejandru",
     "surname": "Regex",
@@ -87,7 +91,8 @@ Payload:
 
 Payload:
 
-```{
+```bash
+{
     "id_author": 1,
     "name": "Alejandru",
     "surname": "Regex",
@@ -99,17 +104,20 @@ Payload:
 - [POST] /api/authors/: se envían por POST los datos del autor a crear y retorna un status 201. 
 
 Payload:
-```{message: "usuario creado: guillermu@thebridgeschool.es"}
+```bash
+{message: "usuario creado: guillermu@thebridgeschool.es"}
 ```
 
 - [PUT] /api/authors/email@prueba.com: actualiza los datos de un autor por su email y retorna un status 200. 
 Payload: 
-```{message: "usuario actualizado: guillermu@thebridgeschool.es"}
+```bash
+{message: "usuario actualizado: guillermu@thebridgeschool.es"}
 ```
 
 - [DELETE] /api/authors/email@prueba.com: borra un autor por su email y retorna un status 200.
 Payload: 
-```{message: "Se ha borrado guillermu@thebridgeschool.es"}
+```bash
+{message: "Se ha borrado guillermu@thebridgeschool.es"}
 ```
 
 ## Author
